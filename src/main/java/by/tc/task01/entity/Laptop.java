@@ -1,74 +1,27 @@
 package by.tc.task01.entity;
 
+import by.tc.task01.entity.criteria.SearchCriteria;
+
+import java.util.Map;
+
 public class Laptop extends Appliance{
-    private float batteryCapacity;
+    private Map<SearchCriteria.Laptop, Object> laptopParams;
 
-    private String OS;
-
-    private int memoryROM;
-
-    private int systemMemory;
-
-    private String CPU;
-
-    private float displayInches;
-    public Laptop(float cost, float batteryCapacity, String os, int memoryROM, int systemMemory,
-                  String cpu, float displayInches) {
-        super(cost);
-        this.batteryCapacity = batteryCapacity;
-
-        OS = os;
-        this.memoryROM = memoryROM;
-        this.systemMemory = systemMemory;
-        CPU = cpu;
-        this.displayInches = displayInches;
+    public Laptop(Map<SearchCriteria.Appliance, Object> applianceParams,
+                  Map<SearchCriteria.Laptop, Object> laptopParams) {
+        super(applianceParams);
+        this.laptopParams = laptopParams;
     }
 
-    public float getBatteryCapacity() {
-        return batteryCapacity;
+
+    public  Object getLaptopParam(SearchCriteria.Laptop paramName) {
+        return laptopParams.get(paramName);
     }
 
-    public void setBatteryCapacity(float batteryCapacity) {
-        this.batteryCapacity = batteryCapacity;
-    }
-
-    public String getOS() {
-        return OS;
-    }
-
-    public void setOS(String OS) {
-        this.OS = OS;
-    }
-
-    public int getMemoryROM() {
-        return memoryROM;
-    }
-
-    public void setMemoryROM(int memoryROM) {
-        this.memoryROM = memoryROM;
-    }
-
-    public int getSystemMemory() {
-        return systemMemory;
-    }
-
-    public void setSystemMemory(int systemMemory) {
-        this.systemMemory = systemMemory;
-    }
-
-    public String getCPU() {
-        return CPU;
-    }
-
-    public void setCPU(String CPU) {
-        this.CPU = CPU;
-    }
-
-    public float getDisplayInches() {
-        return displayInches;
-    }
-
-    public void setDisplayInches(float displayInches) {
-        this.displayInches = displayInches;
+    public void setLaptopParams(SearchCriteria.Laptop paramName, Object value) {
+        if(laptopParams.containsKey(paramName))
+            this.laptopParams.replace(paramName, value);
+        else
+            laptopParams.put(paramName, value);
     }
 }

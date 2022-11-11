@@ -1,77 +1,28 @@
 package by.tc.task01.entity;
 
+import by.tc.task01.entity.criteria.SearchCriteria;
+
+import java.util.Map;
+
+import by.tc.task01.entity.criteria.SearchCriteria.Oven.*;
 public class Oven extends Appliance{
-    private float powerConsumption;
+    private Map<SearchCriteria.Oven, Object> ovenParams;
 
-    private float weight;
-
-    private float capacity;
-
-    private float depth;
-
-    private float width;
-
-    public Oven(float cost, float powerConsumption, float weight, float capacity, float depth,
-                float width, float height) {
-        super(cost);
-        this.powerConsumption = powerConsumption;
-        this.weight = weight;
-        this.capacity = capacity;
-        this.depth = depth;
-        this.width = width;
-        this.height = height;
+    public Oven(Map<SearchCriteria.Appliance, Object> applianceParams,
+                Map<SearchCriteria.Oven, Object> ovenParams) {
+        super(applianceParams);
+        this.ovenParams = ovenParams;
     }
 
-    private float height;
-    public Oven(float cost) {
-        super(cost);
+
+    public Object getOvenParam(SearchCriteria.Oven paramName) {
+        return ovenParams.get(paramName);
     }
 
-    public float getPowerConsumption() {
-        return powerConsumption;
-    }
-
-    public void setPowerConsumption(float powerConsumption) {
-        this.powerConsumption = powerConsumption;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
-    public float getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(float capacity) {
-        this.capacity = capacity;
-    }
-
-    public float getDepth() {
-        return depth;
-    }
-
-    public void setDepth(float depth) {
-        this.depth = depth;
-    }
-
-    public float getWidth() {
-        return width;
-    }
-
-    public void setWidth(float width) {
-        this.width = width;
-    }
-
-    public float getHeight() {
-        return height;
-    }
-
-    public void setHeight(float height) {
-        this.height = height;
+    public void setOvenParams(SearchCriteria.Oven paramName, Object value) {
+        if(ovenParams.containsKey(paramName))
+            this.ovenParams.replace(paramName, value);
+        else
+            ovenParams.put(paramName, value);
     }
 }

@@ -1,62 +1,26 @@
 package by.tc.task01.entity;
 
+import by.tc.task01.entity.criteria.SearchCriteria;
+
+import java.util.Map;
+
 public class Refrigerator extends Appliance{
-    private float powerConsumption;
 
-    private float weight;
-
-    private float freezerCapacity;
-
-    private float overallCapacity;
-
-    private float width;
-    public Refrigerator(float cost, float powerConsumption, float weight, float freezerCapacity,
-                        float overallCapacity, float width) {
-        super(cost);
-        this.powerConsumption = powerConsumption;
-        this.weight = weight;
-        this.freezerCapacity = freezerCapacity;
-        this.overallCapacity = overallCapacity;
-        this.width = width;
+    private Map<SearchCriteria.Refrigerator, Object> refrigeratorParams;
+    public Refrigerator(Map<SearchCriteria.Appliance, Object> applianceParams,
+                        Map<SearchCriteria.Refrigerator, Object> refrigeratorParams) {
+        super(applianceParams);
+        this.refrigeratorParams = refrigeratorParams;
     }
 
-    public float getPowerConsumption() {
-        return powerConsumption;
+    public Object getRefrigeratorParam(SearchCriteria.Refrigerator paramName) {
+        return refrigeratorParams.get(paramName);
     }
 
-    public void setPowerConsumption(float powerConsumption) {
-        this.powerConsumption = powerConsumption;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
-    public float getFreezerCapacity() {
-        return freezerCapacity;
-    }
-
-    public void setFreezerCapacity(float freezerCapacity) {
-        this.freezerCapacity = freezerCapacity;
-    }
-
-    public float getOverallCapacity() {
-        return overallCapacity;
-    }
-
-    public void setOverallCapacity(float overallCapacity) {
-        this.overallCapacity = overallCapacity;
-    }
-
-    public float getWidth() {
-        return width;
-    }
-
-    public void setWidth(float width) {
-        this.width = width;
+    public void setRefrigeratorParams(SearchCriteria.Refrigerator paramName, Object value) {
+        if(refrigeratorParams.containsKey(paramName))
+            this.refrigeratorParams.replace(paramName, value);
+        else
+            refrigeratorParams.put(paramName, value);
     }
 }

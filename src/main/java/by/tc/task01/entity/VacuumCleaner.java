@@ -1,74 +1,27 @@
 package by.tc.task01.entity;
 
+import by.tc.task01.entity.criteria.SearchCriteria;
+
+import java.util.Map;
+
 public class VacuumCleaner extends Appliance{
-    private float powerConsumption;
+    private Map<SearchCriteria.VacuumCleaner, Object> vacuumCleanerParams;
 
-    private String filterType;
-
-    private String bagType;
-
-    private String wandType;
-
-    private float motorSpeedRegulation;
-
-    private float cleaningWidth;
-
-    public VacuumCleaner(float cost, float powerConsumption, String filterType, String bagType,
-                         String wandType, float motorSpeedRegulation, float cleaningWidth) {
-        super(cost);
-        this.powerConsumption = powerConsumption;
-        this.filterType = filterType;
-        this.bagType = bagType;
-        this.wandType = wandType;
-        this.motorSpeedRegulation = motorSpeedRegulation;
-        this.cleaningWidth = cleaningWidth;
+    public VacuumCleaner(Map<SearchCriteria.Appliance, Object> applianceParams,
+                Map<SearchCriteria.VacuumCleaner, Object> vacuumCleanerParams) {
+        super(applianceParams);
+        this.vacuumCleanerParams = vacuumCleanerParams;
     }
 
-    public float getPowerConsumption() {
-        return powerConsumption;
+
+    public Object getVacuumCleanerParam(SearchCriteria.VacuumCleaner paramName) {
+        return vacuumCleanerParams.get(paramName);
     }
 
-    public void setPowerConsumption(float powerConsumption) {
-        this.powerConsumption = powerConsumption;
-    }
-
-    public String getFilterType() {
-        return filterType;
-    }
-
-    public void setFilterType(String filterType) {
-        this.filterType = filterType;
-    }
-
-    public String getBagType() {
-        return bagType;
-    }
-
-    public void setBagType(String bagType) {
-        this.bagType = bagType;
-    }
-
-    public String getWandType() {
-        return wandType;
-    }
-
-    public void setWandType(String wandType) {
-        this.wandType = wandType;
-    }
-
-    public float getMotorSpeedRegulation() {
-        return motorSpeedRegulation;
-    }
-
-    public void setMotorSpeedRegulation(float motorSpeedRegulation) {
-        this.motorSpeedRegulation = motorSpeedRegulation;
-    }
-
-    public float getCleaningWidth() {
-        return cleaningWidth;
-    }
-
-    public void setCleaningWidth(float cleaningWidth) {
-        this.cleaningWidth = cleaningWidth;
+    public void setVacuumCleanerParams(SearchCriteria.VacuumCleaner paramName, Object value) {
+        if(vacuumCleanerParams.containsKey(paramName))
+            this.vacuumCleanerParams.replace(paramName, value);
+        else
+            vacuumCleanerParams.put(paramName, value);
     }
 }

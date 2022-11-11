@@ -1,17 +1,24 @@
 package by.tc.task01.entity;
 
+import by.tc.task01.entity.criteria.SearchCriteria;
+
+import java.util.Map;
+
 public class Appliance {
-    private float Cost;
+    private Map<SearchCriteria.Appliance, Object> applianceParams;
 
-    public Appliance(float cost) {
-        Cost = cost;
+    public Appliance(Map<SearchCriteria.Appliance, Object> applianceParams) {
+        this.applianceParams = applianceParams;
     }
 
-    public float getCost() {
-        return Cost;
+    public Object getApplianceParams(SearchCriteria.Appliance paramName) {
+        return applianceParams.get(paramName);
     }
 
-    public void setCost(float cost) {
-        Cost = cost;
+    public void setApplianceParams(SearchCriteria.Appliance paramName, Object value) {
+        if(applianceParams.containsKey(paramName))
+            this.applianceParams.replace(paramName, value);
+        else
+            applianceParams.put(paramName, value);
     }
 }
