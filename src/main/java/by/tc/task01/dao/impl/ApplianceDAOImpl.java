@@ -34,7 +34,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 
 		@Override
 		public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-			boolean fAdd = false;
+			boolean fAdd = true;
 			if(criteria != null){
 				if(qName.equals(criteria.getGroupSearchName())){
 					for(Map.Entry<String, Object> entry : criteria.getCriteria().entrySet()){
@@ -60,7 +60,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 					applianceParams.put(param, attributes.getValue(param.toString()));
 				}
 
-				if(qName.equals(SearchCriteria.Oven.class.getName())){
+				if(qName.equals(SearchCriteria.Oven.class.getSimpleName())){
 					Map<SearchCriteria.Oven, Object> ovenParams =
 							new HashMap<SearchCriteria.Oven, Object>();
 					for (SearchCriteria.Oven param:
@@ -69,7 +69,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 					}
 					appliance = new Oven(applianceParams, ovenParams);
 				}
-				else if(qName.equals(SearchCriteria.Laptop.class.getName())){
+				else if(qName.equals(SearchCriteria.Laptop.class.getSimpleName())){
 					Map<SearchCriteria.Laptop, Object> laptopParams =
 							new HashMap<SearchCriteria.Laptop, Object>();
 					for (SearchCriteria.Laptop param:
@@ -78,7 +78,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 					}
 					appliance = new Laptop(applianceParams, laptopParams);
 				}
-				else if(qName.equals(SearchCriteria.Refrigerator.class.getName())){
+				else if(qName.equals(SearchCriteria.Refrigerator.class.getSimpleName())){
 					Map<SearchCriteria.Refrigerator, Object> refrigeratorParams =
 							new HashMap<SearchCriteria.Refrigerator, Object>();
 					for (SearchCriteria.Refrigerator param:
@@ -87,7 +87,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 					}
 					appliance = new Refrigerator(applianceParams, refrigeratorParams);
 				}
-				else if(qName.equals(SearchCriteria.Speakers.class.getName())){
+				else if(qName.equals(SearchCriteria.Speakers.class.getSimpleName())){
 					Map<SearchCriteria.Speakers, Object> speakersParams =
 							new HashMap<SearchCriteria.Speakers, Object>();
 					for (SearchCriteria.Speakers param:
@@ -96,7 +96,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 					}
 					appliance = new Speakers(applianceParams, speakersParams);
 				}
-				else if(qName.equals(SearchCriteria.TabletPC.class.getName())){
+				else if(qName.equals(SearchCriteria.TabletPC.class.getSimpleName())){
 					Map<SearchCriteria.TabletPC, Object> tabletPCParams =
 							new HashMap<SearchCriteria.TabletPC, Object>();
 					for (SearchCriteria.TabletPC param:
@@ -105,7 +105,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 					}
 					appliance = new TabletPC(applianceParams, tabletPCParams);
 				}
-				else if(qName.equals(SearchCriteria.VacuumCleaner.class.getName())){
+				else if(qName.equals(SearchCriteria.VacuumCleaner.class.getSimpleName())){
 					Map<SearchCriteria.VacuumCleaner, Object> vacuumCleanerParams =
 							new HashMap<SearchCriteria.VacuumCleaner, Object>();
 					for (SearchCriteria.VacuumCleaner param:

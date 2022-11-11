@@ -21,4 +21,14 @@ public class Appliance {
         else
             applianceParams.put(paramName, value);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
+        for (Map.Entry<SearchCriteria.Appliance, Object> entry:
+                applianceParams.entrySet()) {
+            str.append(entry.getKey().toString() + ": " + entry.getValue().toString() + "\n");
+        }
+        return str.toString();
+    }
 }

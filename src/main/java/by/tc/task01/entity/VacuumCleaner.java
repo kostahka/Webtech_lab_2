@@ -24,4 +24,14 @@ public class VacuumCleaner extends Appliance{
         else
             vacuumCleanerParams.put(paramName, value);
     }
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder(VacuumCleaner.class.getSimpleName() + ": \n");
+        str.append(super.toString());
+        for (Map.Entry<SearchCriteria.VacuumCleaner, Object> entry:
+                vacuumCleanerParams.entrySet()) {
+            str.append(entry.getKey().toString() + ": " + entry.getValue().toString() + "\n");
+        }
+        return str.toString();
+    }
 }

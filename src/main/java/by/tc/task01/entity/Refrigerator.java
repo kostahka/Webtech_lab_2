@@ -23,4 +23,14 @@ public class Refrigerator extends Appliance{
         else
             refrigeratorParams.put(paramName, value);
     }
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder(Refrigerator.class.getSimpleName() + ": \n");
+        str.append(super.toString());
+        for (Map.Entry<SearchCriteria.Refrigerator, Object> entry:
+                refrigeratorParams.entrySet()) {
+            str.append(entry.getKey().toString() + ": " + entry.getValue().toString() + "\n");
+        }
+        return str.toString();
+    }
 }

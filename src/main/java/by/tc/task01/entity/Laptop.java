@@ -24,4 +24,14 @@ public class Laptop extends Appliance{
         else
             laptopParams.put(paramName, value);
     }
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder(Laptop.class.getSimpleName() + ": \n");
+        str.append(super.toString());
+        for (Map.Entry<SearchCriteria.Laptop, Object> entry:
+                laptopParams.entrySet()) {
+            str.append(entry.getKey().toString() + ": " + entry.getValue().toString() + "\n");
+        }
+        return str.toString();
+    }
 }

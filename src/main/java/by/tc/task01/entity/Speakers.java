@@ -23,4 +23,14 @@ public class Speakers extends Appliance{
         else
             speakerParams.put(paramName, value);
     }
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder(Speakers.class.getSimpleName() + ": \n");
+        str.append(super.toString());
+        for (Map.Entry<SearchCriteria.Speakers, Object> entry:
+                speakerParams.entrySet()) {
+            str.append(entry.getKey().toString() + ": " + entry.getValue().toString() + "\n");
+        }
+        return str.toString();
+    }
 }

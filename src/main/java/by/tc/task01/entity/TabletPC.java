@@ -24,4 +24,14 @@ public class TabletPC extends Appliance{
         else
             tabletPCParams.put(paramName, value);
     }
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder(TabletPC.class.getSimpleName() + ": \n");
+        str.append(super.toString());
+        for (Map.Entry<SearchCriteria.TabletPC, Object> entry:
+                tabletPCParams.entrySet()) {
+            str.append(entry.getKey().toString() + ": " + entry.getValue().toString() + "\n");
+        }
+        return str.toString();
+    }
 }

@@ -25,4 +25,15 @@ public class Oven extends Appliance{
         else
             ovenParams.put(paramName, value);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder(Oven.class.getSimpleName() + ": \n");
+        str.append(super.toString());
+        for (Map.Entry<SearchCriteria.Oven, Object> entry:
+                ovenParams.entrySet()) {
+            str.append(entry.getKey().toString() + ": " + entry.getValue().toString() + "\n");
+        }
+        return str.toString();
+    }
 }
