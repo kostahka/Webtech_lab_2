@@ -8,7 +8,10 @@ public class PrintApplianceInfo {
 	
 	public static void print(List<Appliance> appliances) {
 		for (Appliance a:appliances) {
-			System.out.println("" + a);
+			System.out.println(a);
 		}
+	}
+	public static void print(Appliance appliance) {
+		System.out.println(appliance);
 	}
 }

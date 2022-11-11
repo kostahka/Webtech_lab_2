@@ -59,6 +59,14 @@ public class Main {
 
 		PrintApplianceInfo.print(appliances);
 
+		System.out.println("////////////////////////////////////////////////////////////");
+		//////////////////////////////////////////////////////////////////
+		System.out.println("Cheapest: ");
+
+		Appliance appliance = service.findCheapest();
+
+		PrintApplianceInfo.print(appliance);
+
 	}
 
 }

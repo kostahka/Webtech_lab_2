@@ -8,5 +8,6 @@ import java.util.List;
 public interface ApplianceService {	
 	
 	List<Appliance> find(Criteria criteria);
+	Appliance findCheapest();
 	
 }

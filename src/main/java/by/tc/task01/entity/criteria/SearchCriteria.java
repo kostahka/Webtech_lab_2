@@ -1,7 +1,13 @@
 package by.tc.task01.entity.criteria;
 
-public final class SearchCriteria {
+import by.tc.task01.entity.Appliance;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+
+public final class SearchCriteria {
 	public static enum Appliance{
 		COST
 	}
