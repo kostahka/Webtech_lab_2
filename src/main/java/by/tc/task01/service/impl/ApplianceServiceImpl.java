@@ -11,8 +11,16 @@ import by.tc.task01.service.validation.Validator;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * @author Max
+ * Service of application with basic logic to get appliances
+ */
 public class ApplianceServiceImpl implements ApplianceService{
-
+	/**
+	 * Find all appliances satisfying criteria
+	 * @param criteria criteria for searching. Can be null to  get all appliance
+	 * @return List of appliances that was found satisfying criteria
+	 */
 	//@Override
 	public List<Appliance> find(Criteria criteria) {
 		if (!Validator.criteriaValidator(criteria)) {
@@ -27,6 +35,10 @@ public class ApplianceServiceImpl implements ApplianceService{
 		return appliance;
 	}
 
+	/**
+	 * Find the cheapest appliance
+	 * @return The cheapest appliance
+	 */
 	public Appliance findCheapest(){
 		DAOFactory factory = DAOFactory.getInstance();
 		ApplianceDAO applianceDAO = factory.getApplianceDAO();
